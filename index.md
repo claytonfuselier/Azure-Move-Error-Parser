@@ -12,7 +12,6 @@
     <br>
   </div>
   <div id=result style='display:none;'>
-    <h2>Results</h2>     
   </div>
   <div id=disclaim style='display:none;'>
     <br>
@@ -43,7 +42,10 @@
 
 
   //Define variables
-  let results = "<p>Future Parsed Output</p>";
+  let results = `
+    <h2>Results</h2>
+    <p>Future Parsed Output</p>
+  `;
 
 
   function parse() {
@@ -53,6 +55,6 @@
     }
 
     document.getElementById("result").style.display = 'block';
-    document.getElementById('result').insertAdjacentHTML('beforeend',results);
+    document.getElementById('result').innerHTML = results;
   }
 </script>
