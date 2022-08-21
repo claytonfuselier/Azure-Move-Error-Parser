@@ -34,27 +34,53 @@
   document.getElementById("errorInput").style.display = 'block';
   document.getElementById("disclaim").style.display = 'block';
 
-  //Enable form and set default text
-  let defaultText = "Copy/Paste your error here...";
-  document.getElementById("errorBox").value = defaultText;
+  //Enable field and button
   document.getElementById("errorBox").disabled = false;
   document.getElementById("submitButton").disabled = false;
 
 
   //Define variables
-  let results = `
-    <h2>Results</h2>
-    <p>Future Parsed Output</p>
-  `;
+  var resultsHeader = "<h2>Results</h2>";
+  
+  //Display result window and stop processing script
+  function showResult(resultText){
+    document.getElementById("result").style.display = 'block';
+    document.getElementById('result').innerHTML = resultsHeader + resultText;
+    throw new Error("");
+  }
 
-
+  //Main Fuction - Process/Parse Input
   function parse() {
-    let errorMsg = document.getElementById("errorBox").value;
-    if (errorMsg == "Copy/Paste your error here..."){
-      
+    //Get input and replace single quotes with double quotes. JS will not recognize the JSON format with single quotes.
+    var errorMsg = document.getElementById("errorBox").value;
+    var errorMsg = errorMsg.replace(/\'/g, "\"");
+
+    //Confirm JSON format or exit
+    try {
+      var content = JSON.parse(errorMsg);
+    } catch (e) {
+      //If invalid JSON, set error message and stop processing script
+      var resultText = "<p><font style='color:red; font-weight:bold;'>Input is not valid JSON!</font></p>";
+      showResult(resultText);
     }
 
-    document.getElementById("result").style.display = 'block';
-    document.getElementById('result').innerHTML = results;
+    //Match error code
+    switch (content.code) {
+      case 'MoveCannotProceedWithResourcesNotInSucceededState':
+        var resultText = "<p>Matched on 'MoveCannotProceedWithResourcesNotInSucceededState'</p>";
+        showResult(resultText);
+        break;
+      case undefined:
+        var resultText = "<p><font style='color:red; font-weight:bold;'>Unable to locate an object named 'code' in the provided JSON.</font></p>";
+        showResult(resultText);
+        break;
+      default:
+        var resultText = "<p><font style='color:red; font-weight:bold;'>The error code ('" + content.code + "') is not recognized.</font><br><br>###Insert Instructions to Report It###</p>";
+        showResult(resultText);
+    }
+
+    //The below is just for testing purposes
+    //var resultText = "<p><font style='color:pink; font-weight:bold;'>End of Script</font></p>";
+    //showResult(resultText);
   }
 </script>
