@@ -6,7 +6,7 @@
     <br>
     <h2>Input Error Message</h2>
     <p>Paste your Azure provided error message into the box below, then click submit.</p>
-    <textarea id=inputBox rows=15 cols=85 disabled></textarea>
+    <textarea id=inputBox rows=15 cols=95 disabled></textarea>
     <p><font style='text-decoration:underline;'>Important:</font> Please enter the full and complete error message in its original JSON format.</p>
     <p>To see a sample error message, <a href='javascript:demo()'>click here</a>.</p>
     <input type=button id=submitButton value='Submit' onclick='parse()' disabled>
@@ -95,7 +95,7 @@
        <font style='font-weight:bold; text-decoration:underline;'>Pretty Print</font><br>
        For reference, here is the error you provided but in a readable format.
        <div style='background-color:#F5F5F5'>
-         <pre style='white-space:pre-wrap'>`;
+         <pre style='white-space:pre-wrap; display:inline-block;'>`;
     var prettyOutput = prettyHeader + prettyStr + "</pre>";
 
 
