@@ -16,7 +16,7 @@
   <div id=disclaimDiv style='display:none;'>
     <br>
     <h2>Disclaimer</h2>
-    <p>Use of this site (and any outputDivs it generates) comes at your own risk!</p>
+    <p>The information on this website is for general informational purposes only. The owner/author makes no representation or warranty, express or implied. Use of this site is solely at your own risk.</p>
   </div>
   <div id=jsWarn>
     <font style='color:red; font-weight:bold; font-style:italic; font-size:2em'>Enable JavaScript to use this page!</font>
