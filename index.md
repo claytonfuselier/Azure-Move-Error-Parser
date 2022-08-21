@@ -93,9 +93,9 @@
     var prettyHeader = `
        <font style='font-weight:bold; text-decoration:underline;'>Pretty Print</font><br>
        For reference, here is the error you provided but in a readable format.
-       <div style='background-color:#F5F5F5'>
+       <div>
          <pre style='white-space:pre-wrap; display:inline-block;'>`;
-    var prettyOutput = prettyHeader + prettyStr + "</pre>";
+    var prettyOutput = prettyHeader + prettyStr + "</pre><br><br>";
 
 
     //Assemble Full Output
