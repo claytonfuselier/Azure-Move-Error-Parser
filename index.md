@@ -5,9 +5,10 @@
     <p>To protect your privacy and security, this webpage uses JavaScript to parse the error code within your local web browser. No information you provide is transmitted, recorded, or otherwise tracked by this site.</p>
     <br>
     <h2>Input Error Message</h2>
-    <p>Paste your Azure provide error message into the box below, then click submit.</p>
+    <p>Paste your Azure provided error message into the box below, then click submit.</p>
     <textarea id=inputBox rows=15 cols=85 disabled></textarea>
     <p><font style='text-decoration:underline;'>Important:</font> Please enter the full and complete error message in its original JSON format.</p>
+    <p>To see a sample error message, <a href='javascript:demo()'>click here</a>.</p>
     <input type=button id=submitButton value='Submit' onclick='parse()' disabled>
     <br>
     <br>
@@ -43,6 +44,11 @@
 
   //Define variables
   var outputHeader = "<h2>Results</h2>";
+  
+  //Load sample error message
+  function demo(){
+    document.getElementById('inputBox').value ="{'code':'MoveCannotProceedWithResourcesNotInSucceededState','target':'Microsoft.Network/networkInterfaces','message':'One of the resources being migrated or its dependency is not in Succeeded state. Please check details for information about each resource/operation.','details':[{'code':'ResourceNotProvisioned','message':'Cannot proceed with operation because resource /subscriptions/SUBID/resourceGroups/RGNAME/providers/Microsoft.Network/publicIPAddresses/RESOURCENAME either directly involved in the move or referenced by one of the resources involved in the move is not in Succeeded state. Resource is in Failed state and the last operation that updated/is updating the resource is LASTOPERATION.'}]}";
+  }
   
   //Display outputDiv window and stop processing script
   function showOutput(outputText){
