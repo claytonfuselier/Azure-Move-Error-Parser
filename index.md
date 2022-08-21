@@ -42,20 +42,22 @@
   document.getElementById("submitButton").disabled = false;
 
 
-  //Define variables
+  //Define header
   var outputHeader = "<h2>Results</h2>";
-  
+
   //Load sample error message
   function demo(){
     document.getElementById('inputBox').value ="{'code':'MoveCannotProceedWithResourcesNotInSucceededState','target':'Microsoft.Network/networkInterfaces','message':'One of the resources being migrated or its dependency is not in Succeeded state. Please check details for information about each resource/operation.','details':[{'code':'ResourceNotProvisioned','message':'Cannot proceed with operation because resource /subscriptions/SUBID/resourceGroups/RGNAME/providers/Microsoft.Network/publicIPAddresses/RESOURCENAME either directly involved in the move or referenced by one of the resources involved in the move is not in Succeeded state. Resource is in Failed state and the last operation that updated/is updating the resource is LASTOPERATION.'}]}";
   }
-  
+
+
   //Display outputDiv window and stop processing script
-  function showOutput(outputText){
+  function showOutput(text){
     document.getElementById("outputDiv").style.display = 'block';
-    document.getElementById('outputDiv').innerHTML = outputHeader + outputText;
+    document.getElementById('outputDiv').innerHTML = text;
     throw new Error("");
   }
+
 
   //Main Fuction - Process/Parse Input
   function parse() {
@@ -67,8 +69,8 @@
     try {
       var content = JSON.parse(userInput);
     } catch (e) {
-      //If invalid JSON, set error message and stop processing script
-      var outputText = "<p><font style='color:red; font-weight:bold;'>Input is not valid JSON!</font></p>";
+      //If invalid JSON, set output message and stop processing script
+      var outputText = outputHeader + "<p><font style='color:red; font-weight:bold;'>Input is not valid JSON!</font></p>";
       showOutput(outputText);
     }
 
@@ -76,19 +78,29 @@
     switch (content.code) {
       case 'MoveCannotProceedWithResourcesNotInSucceededState':
         var outputText = "<p>Matched on 'MoveCannotProceedWithResourcesNotInSucceededState'</p>";
-        showOutput(outputText);
         break;
       case undefined:
-        var outputText = "<p><font style='color:red; font-weight:bold;'>Unable to locate an object named 'code' in the provided JSON.</font></p>";
+        var outputText = outputHeader + "<p><font style='color:red; font-weight:bold;'>Unable to locate an object named 'code' in the provided JSON.</font></p>";
         showOutput(outputText);
         break;
       default:
-        var outputText = "<p><font style='color:red; font-weight:bold;'>The error code ('" + content.code + "') is not recognized.</font><br><br>###Insert Instructions to Report It###</p>";
+        var outputText = outputHeader + "<p><font style='color:red; font-weight:bold;'>The error code ('" + content.code + "') is not recognized.</font><br><br>###Insert Instructions to Report It###</p>";
         showOutput(outputText);
     }
 
-    //The below is just for testing purposes
-    //var outputText = "<p><font style='color:pink; font-weight:bold;'>End of Script</font></p>";
-    //showOutput(outputText);
+
+    //Pretty Print
+    var prettyStr = JSON.stringify(content, null, 2);
+    var prettyHeader = `
+       <font style='font-weight:bold; text-decoration:underline;'>Pretty Print</font><br>
+       For reference, here is the error you provided but in a readable format.
+       <div style='background-color:#F5F5F5'>
+         <pre style='white-space:pre-wrap'>`;
+    var prettyOutput = prettyHeader + prettyStr + "</pre>";
+
+
+    //Assemble Full Output
+    var fullOutput = outputHeader + outputText + prettyOutput;
+    showOutput(fullOutput);
   }
 </script>
