@@ -16,7 +16,7 @@
   <div id=outputDiv style='display:none;'>
   </div>
   <div id=footer style='display:none;'>
-    <h2>&nbsp;</h2>
+    <h2>Disclaimer</h2>
     <p>The information on this website is for general informational purposes only. The author makes no representation or warranty, express or implied. Use of this site is solely at your own risk.</p>
     <p>This site is not affliated with Microsoft Azure or it's subsidiaries.</p>
   </div>
