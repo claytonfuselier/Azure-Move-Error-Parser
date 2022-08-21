@@ -1,13 +1,14 @@
-<body>
+<body onload='document.getElementById("inputBox").focus();'>
   <div id=inputDiv style='display:none;'>
     <h2>Privacy Notice</h2>
     <p>Azure error messages typically include Subscription IDs and/or other sensitive information.</p>
-    <p>To protect your privacy and security, this webpage <b>uses JavaScript to parse the error code within your local web browser</b>. No information you provide is submitted, recorded, or otherwise tracked by this site.</p>
+    <p>To protect your privacy and security, this webpage uses JavaScript to parse the error code within your local web browser. No information you provide is transmitted, recorded, or otherwise tracked by this site.</p>
     <br>
-    <h2>Your Error Message</h2>
-    <textarea id=inputBox rows=20 cols=85 disabled></textarea>
-    <br><br>
-    <input type=button id=submitButton value='Parse Error' onclick='parse()' disabled>
+    <h2>Input Error Message</h2>
+    <p>Paste your Azure provide error message into the box below, then click submit.</p>
+    <textarea id=inputBox rows=15 cols=85 disabled></textarea>
+    <p><font style='text-decoration:underline;'>Important:</font> Please enter the full and complete error message in its original JSON format.</p>
+    <input type=button id=submitButton value='Submit' onclick='parse()' disabled>
     <br>
     <br>
   </div>
@@ -16,7 +17,8 @@
   <div id=disclaimDiv style='display:none;'>
     <br>
     <h2>Disclaimer</h2>
-    <p>Use of this site (and any outputDivs it generates) comes at your own risk!</p>
+    <p>The information on this website is for general informational purposes only. The author makes no representation or warranty, express or implied. Use of this site is solely at your own risk.</p>
+    <p>This site is not affliated with Microsoft Azure or it's subsidiaries.</p>
   </div>
   <div id=jsWarn>
     <font style='color:red; font-weight:bold; font-style:italic; font-size:2em'>Enable JavaScript to use this page!</font>
