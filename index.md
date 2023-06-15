@@ -9,7 +9,7 @@
     <textarea id=inputBox rows=10 cols=95 disabled></textarea>
     <p><font style='text-decoration:underline;'>Important:</font> Please enter the full and complete error message in its original JSON format.</p>
     <p>To see a sample error message, <a href='javascript:demo()'>click here</a>.</p>
-    <input type=button id=submitButton value='Submit' onclick='parse()' disabled>
+    <input type=button id=submitButton value='Parse' onclick='parse()' disabled>
     <br>
     <br>
   </div>
