@@ -2,9 +2,9 @@
   <div id=inputDiv style='display:none;'>
     <h2>Privacy Notice</h2>
     <p>Azure error messages typically include Subscription IDs and/or other sensitive information.</p>
-    <p>To protect your privacy and security, this webpage uses JavaScript to parse the error code within your local web browser. No information you provide is transmitted, recorded, or otherwise tracked by this site.</p>
+    <p>To protect your privacy and security, this webpage uses JavaScript to parse the error code within your local web browser. <b>No information you provide is transmitted, recorded, or otherwise tracked by this site.</b></p>
     <br>
-    <h2>Input Error Message</h2>
+    <h2>Error Message</h2>
     <p>Paste your Azure provided error message into the box below, then click submit.</p>
     <textarea id=inputBox rows=10 cols=95 disabled></textarea>
     <p><font style='text-decoration:underline;'>Important:</font> Please enter the full and complete error message in its original JSON format.</p>
