@@ -2,7 +2,7 @@
   <div id=inputDiv style='display:none;'>
     <h2>Privacy Notice</h2>
     <p>Azure error messages typically include Subscription IDs and/or other sensitive information.</p>
-    <p>To protect your privacy and security, this webpage uses JavaScript to parse the error code within your local web browser. <b>No information you provide is transmitted, recorded, or otherwise tracked by this site.</b></p>
+    <p>To protect your privacy and security, this webpage uses JavaScript to parse the error code within your local web browser. <font style='font-weight:bold;'>No information you provide is transmitted, recorded, or otherwise tracked by this site.</font></p>
     <br>
     <h2>Error Message</h2>
     <p>Paste your Azure provided error message into the box below, then click submit.</p>
